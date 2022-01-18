@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gfa-gestionale-deployment
+  labels:
+    gfa-gestionale: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      gfa-gestionale: frontend
+  template:
+    metadata:
+      labels:
+        gfa-gestionale: frontend
+    spec:
+      containers:
+      - name: gfa-gestionale
+        image: gfa-gestionale
+        imagePullPolicy: Never
+        ports:
+        - containerPort: {{ default 8080 .Values.defaultSpringBootPort }}
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gfa-gestionale-service
+spec:
+  selector:
+    gfa-gestionale: frontend
+  type: LoadBalancer
+  ports:
+  - protocol: "TCP"
+    port: {{ default 8080 .Values.defaultSpringBootPort }}
+    targetPort: {{ default 8080 .Values.defaultSpringBootPort }}
+    nodePort: 30000

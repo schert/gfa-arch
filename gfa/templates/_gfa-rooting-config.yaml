@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gfa-rooting-config
+data:
+  SPRING_BOOT_PORT: "{{ default 8080 .Values.defaultSpringBootPort }}"
+  MS_BE_TEST: "http://gfa-be-service"
+  GATEWAY_URI: "http://gfa-gateway-service"

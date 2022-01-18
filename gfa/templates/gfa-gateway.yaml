@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gfa-gateway-deployment
+  labels:
+    gfa-gateway: gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      gfa-gateway: gateway
+  template:
+    metadata:
+      labels:
+        gfa-gateway: gateway
+    spec:
+      containers:
+      - name: gfa-gateway
+        image: gfa-gateway
+        imagePullPolicy: Never
+        ports:
+        - containerPort: {{ default 8080 .Values.defaultSpringBootPort }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gfa-gateway-service
+spec:
+  selector:
+    gfa-gateway: gateway
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: {{ default 8080 .Values.defaultSpringBootPort }}

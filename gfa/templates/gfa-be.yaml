@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gfa-be-deployment
+  labels:
+    microservice: gfa-be
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      microservice: gfa-be
+  template:
+    metadata:
+      labels:
+        microservice: gfa-be
+    spec:
+      containers:
+      - name: gfa-be
+        image: gfa-be
+        imagePullPolicy: Never
+        ports:
+        - containerPort: {{ default 8080 .Values.defaultSpringBootPort }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gfa-be-service
+spec:
+  selector:
+    microservice: gfa-be
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: {{ default 8080 .Values.defaultSpringBootPort }}
