@@ -13,6 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: gfa-gestionale-service
+            name: gfa-gestionale
             port:
               number: {{ default 8080 .Values.defaultSpringBootPort }}

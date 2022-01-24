@@ -24,11 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: gfa-gateway-service
+  name: gfa-gateway
 spec:
   selector:
     gfa-gateway: gateway
   ports:
   - protocol: "TCP"
-    port: 80
+    port: {{ default 8080 .Values.microservicesPort }}
     targetPort: {{ default 8080 .Values.defaultSpringBootPort }}
