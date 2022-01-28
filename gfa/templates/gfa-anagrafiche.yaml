@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gfa-be-deployment
+  name: gfa-anagrafiche-deployment
   labels:
-    microservice: gfa-be
+    microservice: gfa-anagrafiche
 spec:
   replicas: 1
   selector:
     matchLabels:
-      microservice: gfa-be
+      microservice: gfa-anagrafiche
   template:
     metadata:
       labels:
-        microservice: gfa-be
+        microservice: gfa-anagrafiche
     spec:
       containers:
-      - name: gfa-be
-        image: gfa-be
+      - name: gfa-anagrafiche
+        image: gfa-anagrafiche
         imagePullPolicy: Never
         ports:
         - containerPort: {{ default 8080 .Values.defaultSpringBootPort }}
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: gfa-be
+  name: gfa-anagrafiche
 spec:
   selector:
-    microservice: gfa-be
+    microservice: gfa-anagrafiche
   ports:
   - protocol: "TCP"
     port: {{ default 8080 .Values.microservicesPort }}

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: gfa-be
+  name: gfa-anagrafiche
 data:
   application.yaml: |-
     server:

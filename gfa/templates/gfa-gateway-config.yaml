@@ -7,4 +7,4 @@ data:
     server:
       port: {{ default 8080 .Values.defaultSpringBootPort }}
     uri:
-      test: http://gfa-be:{{ default 8080 .Values.microservicesPort }}
+      test: http://gfa-anagrafiche:{{ default 8080 .Values.microservicesPort }}
