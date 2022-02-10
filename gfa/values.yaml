@@ -5,5 +5,5 @@
 defaultSpringBootPort: 8085
 microservicesPort: 8080
 db:
-  ip: 151.24.107.26
+  ip: 151.24.113.197
   port: 1521
