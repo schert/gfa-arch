@@ -23,7 +23,10 @@ version: 0.1.0
 # It is recommended to use it with quotes.
 appVersion: "1.16.0"
 
-# dependencies:
-# - name: mysql
-#   version: "8.8.11"
-#   repository: "https://charts.bitnami.com/bitnami"
+dependencies:
+# - name: redis-ha
+#   version: "4.14.9"
+#   repository: "https://dandydeveloper.github.io/charts"
+- name: redis
+  version: "16.4.0"
+  repository: "https://charts.bitnami.com/bitnami"

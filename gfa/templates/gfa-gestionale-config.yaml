@@ -8,3 +8,8 @@ data:
       port: {{ default 8080 .Values.defaultSpringBootPort }}
     gateway:
       host: http://gfa-gateway:{{ default 8080 .Values.microservicesPort }}
+    spring:
+      redis:
+        host: gfa-redis-master
+        port: 6379
+        password: {{ .Values.global.redis.password }}

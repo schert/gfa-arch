@@ -7,3 +7,11 @@ microservicesPort: 8080
 db:
   ip: 151.24.113.197
   port: 1521
+
+global:
+  redis:
+    password: redis_psw
+
+redis:
+  architecture: standalone
+  replica.replicaCount: 1
