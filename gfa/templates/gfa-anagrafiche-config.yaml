@@ -6,6 +6,7 @@ data:
   application.yaml: |-
     server:
       port: {{ default 8080 .Values.defaultSpringBootPort }}
-    db:
-      host: db-service
-      port: {{ default 1521 .Values.db.port }}
+
+    spring:
+      datasource:
+        url: jdbc:oracle:thin:@db-service:{{ default 1521 .Values.db.port }}/pdb1.bip.lan

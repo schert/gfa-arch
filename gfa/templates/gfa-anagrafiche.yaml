@@ -20,6 +20,17 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: {{ default 8080 .Values.defaultSpringBootPort }}
+        env:
+        - name: SECRET_USER
+          valueFrom:
+            secretKeyRef:
+              name: db-security
+              key: db.username
+        - name: SECRET_PSW
+          valueFrom:
+            secretKeyRef:
+              name: db-security
+              key: db.password
 ---
 apiVersion: v1
 kind: Service
