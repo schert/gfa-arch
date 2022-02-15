@@ -13,3 +13,7 @@ data:
         host: gfa-redis-master
         port: 6379
         password: {{ .Values.global.redis.password }}
+
+    # spring:
+    #   datasource:
+    #     url: jdbc:oracle:thin:@db-service:{{ default 1521 .Values.db.port }}/pdb1.bip.lan
