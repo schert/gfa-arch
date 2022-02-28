@@ -5,8 +5,9 @@
 defaultSpringBootPort: 8085
 microservicesPort: 8080
 db:
-  ip: 151.24.113.197
+  ip: 192.168.176.147
   port: 1521
+  url: jdbc:oracle:thin:@db-service:1521/XEPDB1
 
 global:
   redis:

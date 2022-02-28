@@ -13,7 +13,7 @@ metadata:
   name: db-service
 subsets:
   - addresses:
-        - ip: {{ default "127.0.0.1" .Values.db.ip }}
+        - ip: {{ .Values.db.ip }}
     ports:
       - port: {{ default 1521 .Values.db.port }}
         name: db-service

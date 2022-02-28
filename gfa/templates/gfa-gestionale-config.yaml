@@ -16,4 +16,4 @@ data:
 
     # spring:
     #   datasource:
-    #     url: jdbc:oracle:thin:@db-service:{{ default 1521 .Values.db.port }}/pdb1.bip.lan
+    #     url: {{ .Values.db.url }}
